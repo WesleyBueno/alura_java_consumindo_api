@@ -5,24 +5,21 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-public class BuscaCripto {
-
+public class BuscaMeal {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("Qual crypto deseja buscar:\nEx: Ethereum");
-        var crypto = leitor.nextLine();
-        var key = "key";
-        var url = "https://api.coingecko.com/api/v3/search?query=" + crypto + "&x-cg-demo-api-key=" + key;
+        System.out.println("Qual receita deseja buscar:");
+        var receita = leitor.nextLine();
+        var url = "https://www.themealdb.com/api/json/v1/1/search.php?s="+receita;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .build();
+        .uri(URI.create(url))
+        .build();
         HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.body());
     }
 }
