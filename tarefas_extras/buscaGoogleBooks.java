@@ -5,7 +5,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-public class buscaGoogleBooks {
+public class BuscaGoogleBooks {
 public static void main(String[] args) throws IOException, InterruptedException {
 
     Scanner leitor = new Scanner(System.in);
