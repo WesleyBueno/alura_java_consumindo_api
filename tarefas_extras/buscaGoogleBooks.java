@@ -10,7 +10,8 @@ public static void main(String[] args) throws IOException, InterruptedException 
 
     Scanner leitor = new Scanner(System.in);
     System.out.println("Digite o nome do livro: ");
-    String nomeLivro = leitor.nextLine();
+    String livro = leitor.nextLine();
+    String nomeLivro = livro.replace(" ","%20");
     var key="key";
     String url = "https://www.googleapis.com/books/v1/volumes?q=" + nomeLivro + "&key="+ key;
 

@@ -12,12 +12,15 @@ public class BuscaMeal {
 
         System.out.println("Qual receita deseja buscar:");
         var receita = leitor.nextLine();
-        var url = "https://www.themealdb.com/api/json/v1/1/search.php?s="+receita;
+        String nomeReceita = receita.replace(" ","%20");
+        var url = "https://www.themealdb.com/api/json/v1/1/search.php?s="+nomeReceita;
 
         HttpClient client = HttpClient.newHttpClient();
+
         HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(url))
         .build();
+        
         HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(response.body());
